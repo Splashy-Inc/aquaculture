@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://df8hwgywk067w"]
 
-[ext_resource type="TileSet" uid="uid://cedmps7knuuit" path="res://game_tile_set.tres" id="1_cxsjp"]
+[ext_resource type="TileSet" uid="uid://cedmps7knuuit" path="res://TILESETS/game_tile_set.tres" id="1_cxsjp"]
 [ext_resource type="PackedScene" uid="uid://c5sv7xw2rq80f" path="res://SCENES/characters/player/player.tscn" id="2_h7hm6"]
 
 [node name="TestSceneDefault" type="Node2D"]
@@ -17,4 +17,4 @@ tile_set = ExtResource("1_cxsjp")
 
 [node name="Player" parent="." instance=ExtResource("2_h7hm6")]
 position = Vector2(254, 198)
-current_tool = 1
+current_tool = 3
