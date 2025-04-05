@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dkec2p43seo5p"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dkec2p43seo5p"]
 
 [ext_resource type="Texture2D" uid="uid://bcoxyatwqlepo" path="res://ASSETS/game/tilesets/Wooden_House_Walls_Tilset.png" id="1_afch4"]
+[ext_resource type="Texture2D" uid="uid://orsdlcoy1aks" path="res://ASSETS/game/objects/Basic_Furniture.png" id="2_jiidf"]
+[ext_resource type="PackedScene" uid="uid://8fcr86ixmdhu" path="res://SCENES/houses/door.tscn" id="3_e8udb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqsrj"]
 texture = ExtResource("1_afch4")
@@ -32,6 +34,54 @@ texture = ExtResource("1_afch4")
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1fkaj"]
+texture = ExtResource("2_jiidf")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -4, 6, -4, 6, 6, -6, 6)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -5, -3.5, -6, -1.5, -7, 1, -7, 3, -6, 4.5, -5.5, 6, -2.5, 6.5, -0.5, 6.5, 2, 6, 4, 5, 6, 2.5, 6.5, 1, 8, -2, 8, -4, 7, -6, 6, -7, 4, -8, 2, -8, -1, -6.5, -2.5)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 2, 2.5, 7, -1.5, 7, -3.5, 2)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -3, 4.5, 5, -5.5, 5, -2, -3)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.5, -4, 5, 0, 3.5, 3, -2, 3, -7, 2, -7, -1, -1, -4)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, -4, 5, 3, -4, 3, -4, -4)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -4, 4, 3, -5, 3, -5, -4)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -8, 4, 8, -6, 8, -6, -8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(7, -4, 6, -0.5, 3.5, -1.5, -1.5, 3.5, 0, 6, -2.5, 8, -8, 4, -8, 2, -7, 0.5, -4.5, 1.5, 0.5, -3, -0.5, -5, 2, -8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 4, 3.5, 8, 0, 5.5, 1.5, 3.5, -2.5, -1, -6, -0.5, -8, -4, -2, -8, 1, -4.5, -0.5, -3.5, 4.5, 1.5, 6.5, 0)
+2:5/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:3/size_in_atlas = Vector2i(1, 2)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -1, 6, 6.5, 5, 13, 2, 16, -3, 16, -6, 13, -7, 6.5, -7, -1, -0.5, -6.5)
+1:3/size_in_atlas = Vector2i(1, 2)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -1, 6, 6.5, 5, 13, 2, 16, -3, 16, -6, 13, -7, 6.5, -7, -1, -0.5, -6.5)
+2:3/size_in_atlas = Vector2i(1, 2)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -1, 6, 6.5, 5, 13, 2, 16, -3, 16, -6, 13, -7, 6.5, -7, -1, -0.5, -6.5)
+3:5/size_in_atlas = Vector2i(2, 1)
+3:5/0 = 0
+5:5/size_in_atlas = Vector2i(2, 1)
+5:5/0 = 0
+7:5/size_in_atlas = Vector2i(2, 1)
+7:5/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_jbsuf"]
+scenes/1/scene = ExtResource("3_e8udb")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kqsrj")
+sources/1 = SubResource("TileSetAtlasSource_1fkaj")
+sources/2 = SubResource("TileSetScenesCollectionSource_jbsuf")
