@@ -42,7 +42,17 @@ position = Vector2(319, 180)
 [node name="Chickens" type="Node2D" parent="."]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
+position = Vector2(16, -7)
 navigation_polygon = SubResource("NavigationPolygon_cx6ul")
 
 [node name="Chicken" parent="Chickens" instance=ExtResource("2_e8wax")]
 position = Vector2(285, 193)
+
+[node name="Chicken2" parent="Chickens" instance=ExtResource("2_e8wax")]
+position = Vector2(244, 187)
+
+[node name="Chicken3" parent="Chickens" instance=ExtResource("2_e8wax")]
+position = Vector2(288, 161)
+
+[node name="Chicken4" parent="Chickens" instance=ExtResource("2_e8wax")]
+position = Vector2(272, 232)
