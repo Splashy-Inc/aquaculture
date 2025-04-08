@@ -396,12 +396,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnu8c"]
 radius = 5.0
-height = 16.0
+height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fqde"]
 radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_avy1q")
 current_tool = 1
@@ -413,7 +414,7 @@ animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_tnu8c")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
