@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://SCENES/characters/chicken/chicken.gd" id="1_3q2l8"]
 [ext_resource type="Texture2D" uid="uid://cuwd5ulu7b2lu" path="res://ASSETS/game/characters/Free Chicken Sprites.png" id="1_r3lq8"]
 [ext_resource type="Script" path="res://SCRIPTS/state_machine/node_state_machine.gd" id="2_n15p4"]
-[ext_resource type="Script" path="res://SCENES/characters/chicken/idle_state.gd" id="3_p00tg"]
-[ext_resource type="Script" path="res://SCENES/characters/chicken/walk_state.gd" id="4_o8ft8"]
+[ext_resource type="Script" path="res://SCENES/characters/npc_states/idle_state.gd" id="3_p00tg"]
+[ext_resource type="Script" path="res://SCENES/characters/npc_states/walk_state.gd" id="4_o8ft8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_562se"]
 atlas = ExtResource("1_r3lq8")
