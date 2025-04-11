@@ -66,6 +66,7 @@ radius = 3.0
 
 [node name="Cow" type="CharacterBody2D"]
 position = Vector2(0, -1)
+collision_layer = 64
 script = ExtResource("1_h5smc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +81,7 @@ shape = SubResource("CircleShape2D_nr4nk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 2
+path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
 
