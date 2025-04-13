@@ -405,12 +405,11 @@ radius = 4.0
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_avy1q")
-current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_xxgwb")
-animation = &"idle_front"
+animation = &"tilling_left"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

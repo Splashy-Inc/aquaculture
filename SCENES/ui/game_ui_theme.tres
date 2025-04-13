@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://k5ymdi3alhj7"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://k5ymdi3alhj7"]
 
 [ext_resource type="Texture2D" uid="uid://bfb0hpt4bqwsc" path="res://ASSETS/ui/basic_ui_sprites.png" id="1_8l6ov"]
 
@@ -13,6 +13,33 @@ texture_margin_top = 5.0
 texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 region_rect = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18x47"]
+atlas = ExtResource("1_8l6ov")
+region = Rect2(8, 59, 32, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvn3y"]
+texture = SubResource("AtlasTexture_18x47")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 0, 32, 28)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s2rkm"]
+load_path = "res://.godot/imported/basic_ui_sprites.png-fc53ecb2804fb578b9316c919ea72e12.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxj5y"]
+atlas = SubResource("CompressedTexture2D_s2rkm")
+region = Rect2(8, 107, 32, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvn0a"]
+texture = SubResource("AtlasTexture_wxj5y")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(0, 0, 32, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujg7o"]
 atlas = ExtResource("1_8l6ov")
@@ -56,12 +83,13 @@ region_rect = Rect2(0, 0, 32, 28)
 [resource]
 DarkWoodPanel/base_type = &"PanelContainer"
 DarkWoodPanel/styles/panel = SubResource("StyleBoxTexture_8nvgc")
-MarginContainer/constants/margin_bottom = 10
-MarginContainer/constants/margin_left = 10
-MarginContainer/constants/margin_right = 10
-MarginContainer/constants/margin_top = 10
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
 ToolButton/base_type = &"Button"
-ToolButton/styles/focus = null
+ToolButton/styles/disabled = SubResource("StyleBoxTexture_qvn3y")
+ToolButton/styles/focus = SubResource("StyleBoxTexture_mvn0a")
 ToolButton/styles/hover = SubResource("StyleBoxTexture_4qxoh")
 ToolButton/styles/normal = SubResource("StyleBoxTexture_v2au6")
 ToolButton/styles/pressed = SubResource("StyleBoxTexture_cohyu")
