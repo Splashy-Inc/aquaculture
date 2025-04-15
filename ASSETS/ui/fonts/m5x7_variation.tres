@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://b6k1xvdf5tp6b"]
+
+[ext_resource type="FontFile" uid="uid://meqlmoqchwbw" path="res://ASSETS/ui/fonts/m5x7.ttf" id="1_cevfj"]
+
+[resource]
+base_font = ExtResource("1_cevfj")
