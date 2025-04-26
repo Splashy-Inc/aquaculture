@@ -13,12 +13,16 @@ config_version=5
 config/name="Aquaculture"
 run/main_scene="res://SCENES/ui/tools_panel.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="res://Splashy Inc. CleanedUp.png"
+boot_splash/fullsize=false
+config/icon="res://icon.png"
+boot_splash/minimum_display_time=2
 
 [autoload]
 
 ToolManager="*res://SCRIPTS/globals/tool_manager.gd"
 InventoryManager="*res://SCRIPTS/globals/inventory_manager.gd"
+DayAndNightCycleManager="*res://SCRIPTS/globals/day_and_night_cycle_manager.gd"
 
 [display]
 
