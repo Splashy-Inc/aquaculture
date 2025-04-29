@@ -1,10 +1,31 @@
-[gd_scene load_steps=6 format=4 uid="uid://xwhtjlt5tk2n"]
+[gd_scene load_steps=12 format=4 uid="uid://xwhtjlt5tk2n"]
 
 [ext_resource type="PackedScene" uid="uid://1afb5l84qgnb" path="res://SCENES/components/day_night_cycle_component.tscn" id="1_j7ryo"]
 [ext_resource type="TileSet" uid="uid://cedmps7knuuit" path="res://TILESETS/game_tile_set.tres" id="2_i6sln"]
 [ext_resource type="PackedScene" uid="uid://c5sv7xw2rq80f" path="res://SCENES/characters/player/player.tscn" id="3_dcxa7"]
 [ext_resource type="PackedScene" uid="uid://d2ab0kx0n2nwh" path="res://SCENES/ui/game_screen.tscn" id="4_sei2d"]
 [ext_resource type="PackedScene" uid="uid://enttqf7iq7p5" path="res://SCENES/objects/plants/corn.tscn" id="5_o7yf0"]
+[ext_resource type="PackedScene" uid="uid://1dohpq05ojyv" path="res://SCENES/objects/trees/small_tree.tscn" id="6_kot1k"]
+[ext_resource type="Shader" path="res://SCENES/objects/shake.gdshader" id="7_8e8yc"]
+[ext_resource type="PackedScene" uid="uid://dx0bl4vcp0gt4" path="res://SCENES/objects/plants/tomato.tscn" id="8_wteun"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iswtu"]
+resource_local_to_scene = true
+shader = ExtResource("7_8e8yc")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hx4ds"]
+resource_local_to_scene = true
+shader = ExtResource("7_8e8yc")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jni5j"]
+resource_local_to_scene = true
+shader = ExtResource("7_8e8yc")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [node name="TestSceneCrops" type="Node2D"]
 
@@ -24,9 +45,35 @@ tile_set = ExtResource("2_i6sln")
 
 [node name="Player" parent="." instance=ExtResource("3_dcxa7")]
 position = Vector2(254, 198)
-current_tool = 3
 
 [node name="GameScreen" parent="." instance=ExtResource("4_sei2d")]
 
+[node name="SmallTree" parent="." instance=ExtResource("6_kot1k")]
+material = SubResource("ShaderMaterial_iswtu")
+position = Vector2(230, 188)
+
+[node name="SmallTree2" parent="." instance=ExtResource("6_kot1k")]
+material = SubResource("ShaderMaterial_hx4ds")
+position = Vector2(230, 159)
+
+[node name="SmallTree3" parent="." instance=ExtResource("6_kot1k")]
+material = SubResource("ShaderMaterial_jni5j")
+position = Vector2(245, 159)
+
 [node name="Corn" parent="." instance=ExtResource("5_o7yf0")]
 position = Vector2(277, 198)
+
+[node name="Corn2" parent="." instance=ExtResource("5_o7yf0")]
+position = Vector2(277, 184)
+
+[node name="Corn3" parent="." instance=ExtResource("5_o7yf0")]
+position = Vector2(277, 171)
+
+[node name="Tomato" parent="." instance=ExtResource("8_wteun")]
+position = Vector2(297, 198)
+
+[node name="Tomato2" parent="." instance=ExtResource("8_wteun")]
+position = Vector2(297, 184)
+
+[node name="Tomato3" parent="." instance=ExtResource("8_wteun")]
+position = Vector2(297, 171)

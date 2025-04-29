@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://enttqf7iq7p5"]
+[gd_scene load_steps=8 format=3 uid="uid://enttqf7iq7p5"]
 
 [ext_resource type="Texture2D" uid="uid://bg2nn3pdhqeed" path="res://ASSETS/game/objects/Basic_Plants.png" id="1_p21lr"]
+[ext_resource type="Script" path="res://SCENES/objects/plants/corn.gd" id="1_q7fbb"]
 [ext_resource type="PackedScene" uid="uid://bffk8vcou2r8f" path="res://SCENES/objects/plants/watering_particles.tscn" id="2_bbm0q"]
 [ext_resource type="PackedScene" uid="uid://cvrlb3c6usyie" path="res://SCENES/components/hurt_component.tscn" id="2_fptpt"]
 [ext_resource type="PackedScene" uid="uid://eab1ey1guj7f" path="res://SCENES/objects/plants/flowering_particles.tscn" id="3_rhca4"]
@@ -10,6 +11,8 @@
 size = Vector2(13.5, 7)
 
 [node name="Corn" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_q7fbb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
