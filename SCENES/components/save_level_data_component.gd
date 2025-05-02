@@ -21,7 +21,7 @@ func save_node_data() -> void:
 	if nodes != null:
 		for node: SaveDataComponent in nodes:
 			if node is SaveDataComponent:
-				var save_data_resource: NodeDataResource = node.save_data()
+				var save_data_resource: NodeDataResource = node._save_data()
 				var save_final_resource = save_data_resource.duplicate()
 				game_data_resource.save_data_nodes.append(save_final_resource)
 				

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dh1rajd1n4q5p"]
+
+[ext_resource type="Script" path="res://resources/tilemap_layer_data_resource.gd" id="1_0s4s3"]
+
+[resource]
+script = ExtResource("1_0s4s3")
+tilemap_layer_used_cells = Array[Vector2i]([])
+terrain_set = 0
+terrain = 3
+global_position = Vector2(0, 0)
+node_path = NodePath("")
+parent_node_path = NodePath("")
