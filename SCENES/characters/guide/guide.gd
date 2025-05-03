@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func on_interactable_activated() -> void:
-	interactable_component.show()
+	interactable_label_component.show()
 	in_range = true
 
 

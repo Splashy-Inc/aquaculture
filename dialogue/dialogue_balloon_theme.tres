@@ -18,7 +18,7 @@ load_path = "res://.godot/imported/basic_ui_sprites.png-fc53ecb2804fb578b9316c91
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p066u"]
 atlas = SubResource("CompressedTexture2D_574s6")
-region = Rect2(203, 59, 26, 26)
+region = Rect2(201, 9, 30, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kafx0"]
 texture = SubResource("AtlasTexture_p066u")
