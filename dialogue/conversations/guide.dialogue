@@ -1,15 +1,15 @@
 ~ start
-Pappy: [[Hi|Hello|Howdy]], nice to meet you.
-Pappy: Welcome to your new farm.
-Pappy: Looks like the fish are hungry.
-Pappy: You need to grow some crops to feed them.
-Pappy: Here are some seeds to get you started.
-Pappy: It's a fish eat fish world! 
+Bjorn: [[Hi|Hello|Howdy]], nice to meet you.
+Bjorn: Welcome to your new farm.
+Bjorn: Looks like the fish are hungry.
+Bjorn: You need to grow some crops to feed them.
+Bjorn: Here are some seeds to get you started.
+Bjorn: It's a fish eat fish world! 
 - Take crop seeds
-	Pookie: Yeah I can grow crops.
+	Splish: Yeah I can grow crops.
 	do GameDialogueManager.action_give_crop_seeds()
 - No, I don't want them
-	Pookie: I'm not ready to grow my farm yet.
+	Splish: I'm not ready to grow my farm yet.
 
 
 => END
