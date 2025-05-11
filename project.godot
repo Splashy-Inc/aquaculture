@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Aquaculture"
-run/main_scene="res://SCENES/main_scene.tscn"
+run/main_scene="res://SCENES/ui/game_menu_screen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://Splashy Inc. CleanedUp.png"
 boot_splash/fullsize=false
