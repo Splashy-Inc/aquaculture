@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsgs21x35luhl"]
+[gd_scene load_steps=18 format=3 uid="uid://bsgs21x35luhl"]
 
 [ext_resource type="Texture2D" uid="uid://be2qa1eqx6tt8" path="res://ASSETS/game/characters/Free Cow Sprites.png" id="1_37tjw"]
 [ext_resource type="Script" path="res://SCENES/characters/cow/cow.gd" id="1_h5smc"]
 [ext_resource type="Script" path="res://SCRIPTS/state_machine/node_state_machine.gd" id="2_hx71t"]
 [ext_resource type="Script" path="res://SCENES/characters/npc_states/idle_state.gd" id="3_afahu"]
 [ext_resource type="Script" path="res://SCENES/characters/npc_states/walk_state.gd" id="4_m6702"]
+[ext_resource type="PackedScene" uid="uid://cnm0ig7bjb7e8" path="res://audio/SFX/cow_moo_sfx.tscn" id="6_2mhtw"]
+[ext_resource type="PackedScene" uid="uid://c2kkteopys3hs" path="res://SCENES/components/audio_play_time_component.tscn" id="7_fcnam"]
+[ext_resource type="AudioStream" uid="uid://be58hpvdqwt3p" path="res://ASSETS/audio/sfx/cowfish.ogg" id="7_pgaw3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkn3r"]
 atlas = ExtResource("1_37tjw")
@@ -64,6 +67,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr4nk"]
 radius = 3.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f4g8r"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_pgaw3")
+
 [node name="Cow" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(0, -1)
@@ -100,3 +108,13 @@ script = ExtResource("4_m6702")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+
+[node name="CowMooSFX" parent="." instance=ExtResource("6_2mhtw")]
+stream = SubResource("AudioStreamRandomizer_f4g8r")
+volume_db = 0.0
+max_distance = 500.0
+
+[node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("7_fcnam")]
+wait_time = 2.0
+autostart = true
+audio_stream_player_2D = NodePath("../CowMooSFX")

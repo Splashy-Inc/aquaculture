@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx0bl4vcp0gt4"]
+[gd_scene load_steps=12 format=3 uid="uid://dx0bl4vcp0gt4"]
 
 [ext_resource type="Texture2D" uid="uid://bg2nn3pdhqeed" path="res://ASSETS/game/objects/Basic_Plants.png" id="1_44wo1"]
 [ext_resource type="Script" path="res://SCENES/objects/plants/tomato.gd" id="1_a8njk"]
@@ -8,9 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cvrlb3c6usyie" path="res://SCENES/components/hurt_component.tscn" id="5_7xlyb"]
 [ext_resource type="PackedScene" uid="uid://b5nprdgleat4o" path="res://SCENES/components/save_data_component.tscn" id="7_2vn5m"]
 [ext_resource type="Resource" uid="uid://btuhafbhpf5i8" path="res://resources/scene_data_resource.tres" id="8_u16a1"]
+[ext_resource type="AudioStream" uid="uid://c6nfqpy28nrfk" path="res://ASSETS/audio/sfx/waterhit.ogg" id="9_evoxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cxns"]
 size = Vector2(13, 7)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0b3dn"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("9_evoxf")
 
 [node name="Tomato" type="Node2D"]
 y_sort_enabled = true
@@ -38,3 +44,7 @@ shape = SubResource("RectangleShape2D_2cxns")
 
 [node name="SaveDataComponent" parent="." instance=ExtResource("7_2vn5m")]
 save_data_resource = ExtResource("8_u16a1")
+
+[node name="WaterSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0b3dn")
+volume_db = 12.0

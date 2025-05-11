@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://chdodnm1xboaw"]
+
+[ext_resource type="AudioStream" uid="uid://bbi20eh1g4jbf" path="res://ASSETS/audio/sfx/chickenfish1.ogg" id="1_7kcn4"]
+[ext_resource type="AudioStream" uid="uid://ckr7tcdirvqsg" path="res://ASSETS/audio/sfx/chickenfish2.ogg" id="2_6adg8"]
+[ext_resource type="AudioStream" uid="uid://djlasmwpmtnb5" path="res://ASSETS/audio/sfx/chickenfish3.ogg" id="3_6kqsv"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hr1cn"]
+random_pitch = 1.22
+streams_count = 3
+stream_0/stream = ExtResource("1_7kcn4")
+stream_1/stream = ExtResource("2_6adg8")
+stream_2/stream = ExtResource("3_6kqsv")
+
+[node name="ChickenCluckMultipleSFX" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_hr1cn")
+volume_db = 5.0
+bus = &"SFX"

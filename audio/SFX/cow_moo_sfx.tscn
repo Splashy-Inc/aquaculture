@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnm0ig7bjb7e8"]
+
+[ext_resource type="AudioStream" uid="uid://be58hpvdqwt3p" path="res://ASSETS/audio/sfx/cowfish.ogg" id="1_22sf3"]
+
+[node name="CowMooSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_22sf3")
+volume_db = 10.0
+bus = &"SFX"

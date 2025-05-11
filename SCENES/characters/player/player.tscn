@@ -453,3 +453,6 @@ hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisi
 [node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 shape = SubResource("CircleShape2D_8fqde")
 debug_color = Color(0.723383, 0.391539, 0.711117, 0.42)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

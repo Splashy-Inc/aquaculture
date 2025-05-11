@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=4 uid="uid://waprt13tre0h"]
+[gd_scene load_steps=29 format=4 uid="uid://waprt13tre0h"]
 
 [ext_resource type="PackedScene" uid="uid://cndvjxv6k221g" path="res://SCENES/components/save_level_data_component.tscn" id="1_13d8e"]
 [ext_resource type="TileSet" uid="uid://cedmps7knuuit" path="res://TILESETS/game_tile_set.tres" id="1_gggyt"]
+[ext_resource type="PackedScene" uid="uid://dcx4ygdmyiwyc" path="res://audio/music/on_the_farm_music.tscn" id="1_rg01t"]
 [ext_resource type="PackedScene" uid="uid://c6x2gnkhcbpcs" path="res://SCENES/houses/large_house.tscn" id="2_hrufy"]
 [ext_resource type="PackedScene" uid="uid://b5nprdgleat4o" path="res://SCENES/components/save_data_component.tscn" id="3_3io4n"]
 [ext_resource type="PackedScene" uid="uid://d1scwh08ckgen" path="res://SCENES/houses/small_house.tscn" id="3_r4nog"]
@@ -13,10 +14,28 @@
 [ext_resource type="PackedScene" uid="uid://dkp7v8pk2eapo" path="res://SCENES/components/crop_curser_component.tscn" id="6_76i3r"]
 [ext_resource type="PackedScene" uid="uid://c1b5lssqhnhyr" path="res://SCENES/characters/guide/guide.tscn" id="6_a4s6c"]
 [ext_resource type="Script" path="res://SCENES/components/crop_curser_component.gd" id="7_o42n2"]
+[ext_resource type="AudioStream" uid="uid://crorqjekvuenw" path="res://ASSETS/audio/sfx/tillhit1.ogg" id="10_rgrp8"]
+[ext_resource type="AudioStream" uid="uid://b0hkg08id4cte" path="res://ASSETS/audio/sfx/tillhit3.ogg" id="11_4b3ul"]
 [ext_resource type="PackedScene" uid="uid://d4e2dio1awjy3" path="res://SCENES/objects/chest/chest.tscn" id="11_eu1ll"]
 [ext_resource type="PackedScene" uid="uid://bcp176o3yaoxk" path="res://SCENES/objects/milk.tscn" id="12_17kk5"]
+[ext_resource type="AudioStream" uid="uid://blhhu4o1ijxqf" path="res://ASSETS/audio/sfx/seedhit1.ogg" id="12_qjirs"]
 [ext_resource type="PackedScene" uid="uid://chypklbya6765" path="res://SCENES/objects/egg.tscn" id="13_kpe4e"]
+[ext_resource type="AudioStream" uid="uid://21hrd6dwp1mn" path="res://ASSETS/audio/sfx/seedhit2.ogg" id="13_mlpu2"]
+[ext_resource type="AudioStream" uid="uid://brr23cbdg6rrc" path="res://ASSETS/audio/sfx/seedhit3.ogg" id="14_ipdmx"]
 [ext_resource type="FontVariation" uid="uid://b6k1xvdf5tp6b" path="res://ASSETS/ui/fonts/m5x7_variation.tres" id="17_nj4lk"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o06b5"]
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("10_rgrp8")
+stream_1/stream = ExtResource("11_4b3ul")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5l82c"]
+random_pitch = 1.05
+streams_count = 3
+stream_0/stream = ExtResource("12_qjirs")
+stream_1/stream = ExtResource("13_mlpu2")
+stream_2/stream = ExtResource("14_ipdmx")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a0tls"]
 vertices = PackedVector2Array(189, 229, 189, 247.203, 140.328, 299.344, 137.25, 186.867, 157, 198, 183, 181.594, 189, 180.898, 189, 201, 183, 198, 157, 184.602, 215, 201, 333, 229, 333, 191.727, 215, 182, 328, 182.5, 328, 182, 332.172, 182.5)
@@ -35,6 +54,10 @@ default_font = ExtResource("17_nj4lk")
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+
+[node name="OnTheFarmMusic" parent="." instance=ExtResource("1_rg01t")]
+volume_db = -5.0
+autoplay = true
 
 [node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_13d8e")]
 
@@ -75,14 +98,24 @@ position = Vector2(881, 296)
 
 [node name="CropFields" type="Node2D" parent="."]
 
-[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("4_6ssi5")]
+[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer", "sound") instance=ExtResource("4_6ssi5")]
 script = ExtResource("5_3x7qq")
 grass_tilemap_layer = NodePath("../GameTileMap/Grass")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+sound = NodePath("TillSFX")
 
-[node name="CropCurserComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("6_76i3r")]
+[node name="TillSFX" type="AudioStreamPlayer2D" parent="FieldCursorComponent"]
+stream = SubResource("AudioStreamRandomizer_o06b5")
+volume_db = 7.0
+
+[node name="CropCurserComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer", "sound") instance=ExtResource("6_76i3r")]
 script = ExtResource("7_o42n2")
 tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+sound = NodePath("SowSFX")
+
+[node name="SowSFX" type="AudioStreamPlayer2D" parent="CropCurserComponent"]
+stream = SubResource("AudioStreamRandomizer_5l82c")
+volume_db = 7.0
 
 [node name="Chickens" type="Node2D" parent="."]
 y_sort_enabled = true

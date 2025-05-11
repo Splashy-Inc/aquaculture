@@ -18,6 +18,10 @@ boot_splash/fullsize=false
 config/icon="res://icon.png"
 boot_splash/minimum_display_time=2
 
+[audio]
+
+buses/default_bus_layout="res://audio/game_audio_bus_layout.tres"
+
 [autoload]
 
 ToolManager="*res://SCRIPTS/globals/tool_manager.gd"
@@ -50,6 +54,7 @@ folder_colors={
 "res://SCREENSHOTS/": "gray",
 "res://SCRIPTS/": "pink",
 "res://TILESETS/": "yellow",
+"res://audio/": "red",
 "res://dialogue/": "teal",
 "res://resources/": "purple"
 }

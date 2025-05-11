@@ -8,6 +8,9 @@ var corn_harvest_scene = preload("res://SCENES/objects/plants/corn_harvest.tscn"
 @onready var growth_cycle_component: GrowthCycleComponent = $GrowthCycleComponent
 @onready var hurt_component: HurtComponent = $HurtComponent
 
+@onready var sound: AudioStreamPlayer2D = $WaterSFX
+
+
 var growth_state: DataTypes.GrowthStates = DataTypes.GrowthStates.Seed
 
 
@@ -28,6 +31,7 @@ func _process(delta: float) -> void:
 
 func on_hurt(hit_damage: int) -> void:
 	if !growth_cycle_component.is_watered:
+		sound.play()
 		watering_particles.emitting = true
 		await get_tree().create_timer(5.0).timeout
 		watering_particles.emitting = false

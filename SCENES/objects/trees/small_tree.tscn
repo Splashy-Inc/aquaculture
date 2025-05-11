@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://1dohpq05ojyv"]
+[gd_scene load_steps=11 format=3 uid="uid://1dohpq05ojyv"]
 
 [ext_resource type="Texture2D" uid="uid://dgrxblf3f73td" path="res://ASSETS/game/objects/Basic_Grass_Biom_things.png" id="1_jc7pj"]
 [ext_resource type="Shader" path="res://SCENES/objects/shake.gdshader" id="1_jriyo"]
 [ext_resource type="PackedScene" uid="uid://cvrlb3c6usyie" path="res://SCENES/components/hurt_component.tscn" id="2_gk8rt"]
 [ext_resource type="Script" path="res://SCENES/objects/trees/small_tree.gd" id="2_punnk"]
 [ext_resource type="PackedScene" uid="uid://dvjjq7nx67x6o" path="res://SCENES/components/damage_component.tscn" id="4_ivwgi"]
+[ext_resource type="AudioStream" uid="uid://dxjt1rsp846k2" path="res://ASSETS/audio/sfx/treehit1.ogg" id="6_ljlgk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mo3tr"]
 resource_local_to_scene = true
@@ -18,7 +19,12 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d7j0"]
 size = Vector2(10, 23)
 
-[node name="SmallTree" type="Sprite2D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f7wmt"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_ljlgk")
+
+[node name="SmallTree" type="Sprite2D" node_paths=PackedStringArray("sound")]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_mo3tr")
 position = Vector2(0, -4)
@@ -27,6 +33,7 @@ offset = Vector2(0, -9)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
 script = ExtResource("2_punnk")
+sound = NodePath("ChopSFX")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -44,3 +51,8 @@ debug_color = Color(0.550687, 0.43289, 0.925584, 0.42)
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_ivwgi")]
 max_damage = 3
+
+[node name="ChopSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_f7wmt")
+volume_db = 5.0
+pitch_scale = 0.8

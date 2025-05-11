@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyfvwxksvufdo"]
+[gd_scene load_steps=15 format=3 uid="uid://dyfvwxksvufdo"]
 
 [ext_resource type="Texture2D" uid="uid://dgrxblf3f73td" path="res://ASSETS/game/objects/Basic_Grass_Biom_things.png" id="1_31mkc"]
 [ext_resource type="Script" path="res://SCENES/objects/rocks/rock.gd" id="2_jf803"]
 [ext_resource type="Shader" path="res://SCENES/objects/shake.gdshader" id="3_i17mn"]
 [ext_resource type="PackedScene" uid="uid://cvrlb3c6usyie" path="res://SCENES/components/hurt_component.tscn" id="3_xid8m"]
 [ext_resource type="PackedScene" uid="uid://dvjjq7nx67x6o" path="res://SCENES/components/damage_component.tscn" id="4_c48l5"]
+[ext_resource type="AudioStream" uid="uid://ceq58dh2l8ps5" path="res://ASSETS/audio/sfx/rockhit1.ogg" id="6_bjtuw"]
+[ext_resource type="AudioStream" uid="uid://b3h2mwga488to" path="res://ASSETS/audio/sfx/rockhit2.ogg" id="7_ho68a"]
+[ext_resource type="AudioStream" uid="uid://d23fnu55uxjq6" path="res://ASSETS/audio/sfx/rockhit3.ogg" id="8_1dwkt"]
+[ext_resource type="AudioStream" uid="uid://c3w7v62autf8x" path="res://ASSETS/audio/sfx/rockhit4.ogg" id="9_h4c40"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_omw31"]
 resource_local_to_scene = true
@@ -21,11 +25,19 @@ size = Vector2(10, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pigug"]
 
-[node name="Rock" type="Sprite2D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2adqa"]
+streams_count = 4
+stream_0/stream = ExtResource("6_bjtuw")
+stream_1/stream = ExtResource("7_ho68a")
+stream_2/stream = ExtResource("8_1dwkt")
+stream_3/stream = ExtResource("9_h4c40")
+
+[node name="Rock" type="Sprite2D" node_paths=PackedStringArray("sound")]
 material = SubResource("ShaderMaterial_omw31")
 position = Vector2(0, -7)
 texture = SubResource("AtlasTexture_akmmf")
 script = ExtResource("2_jf803")
+sound = NodePath("HitSFX")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -41,3 +53,7 @@ debug_color = Color(0.743967, 0.3698, 0.722562, 0.42)
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_c48l5")]
 max_damage = 5
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_2adqa")
+volume_db = 3.0

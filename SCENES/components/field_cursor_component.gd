@@ -5,6 +5,7 @@ extends Node
 @export var tilled_soil_tilemap_layer: TileMapLayer
 @export var terrain_set: int = 0
 @export var terrain: int = 3
+@export var sound: AudioStreamPlayer2D
 
 
 var player: Player
@@ -39,9 +40,10 @@ func get_cell_under_mouse() -> void:
 	#print("distance: ", distance)
 	
 func add_tilled_soil_cell() -> void:
-	if distance < 20.0 && cell_source_id != -1:
+	if distance < 30.0 && cell_source_id != -1:
+		sound.play()
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
 
 func remove_tilled_soil_cell() -> void:
-	if distance < 20.0:
+	if distance < 30.0:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], 0, -1, true)

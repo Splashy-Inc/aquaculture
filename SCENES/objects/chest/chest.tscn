@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://d4e2dio1awjy3"]
+[gd_scene load_steps=22 format=3 uid="uid://d4e2dio1awjy3"]
 
 [ext_resource type="Texture2D" uid="uid://bbyulo7jog824" path="res://ASSETS/game/objects/Chest.png" id="1_b5f0k"]
 [ext_resource type="Script" path="res://SCENES/objects/chest/chest.gd" id="1_je2vg"]
 [ext_resource type="PackedScene" uid="uid://h0b6qabcna5v" path="res://SCENES/components/interactable_component.tscn" id="2_k8ons"]
 [ext_resource type="PackedScene" uid="uid://bad8g1l725c57" path="res://SCENES/components/interactable_label_component.tscn" id="3_yupsg"]
 [ext_resource type="PackedScene" uid="uid://cgexubs2rytyx" path="res://SCENES/components/feed_component.tscn" id="5_ao7ix"]
+[ext_resource type="AudioStream" uid="uid://264epanskold" path="res://ASSETS/audio/sfx/chest.ogg" id="6_3ftmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_up68p"]
 size = Vector2(14, 12)
@@ -142,3 +143,6 @@ position = Vector2(17, 16)
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_4exn1")
 debug_color = Color(0.686303, 0.492562, 0.246546, 0.42)
+
+[node name="OpenSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3ftmv")

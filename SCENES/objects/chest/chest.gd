@@ -15,6 +15,7 @@ var tomato_harvest_scene = preload("res://scenes/objects/plants/tomato_harvest.t
 @onready var feed_component: FeedComponent = $FeedComponent
 @onready var reward_marker: Marker2D = $RewardMarker
 @onready var interactable_label_component: Control = $InteractableLabelComponent
+@onready var sound: AudioStreamPlayer2D = $OpenSFX
 
 var in_range: bool
 var is_chest_open:bool
@@ -44,6 +45,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("show_dialogue"):
 			interactable_label_component.hide()
 			animated_sprite_2d.play("chest_open")
+			sound.play()
 			is_chest_open = true
 			
 			#create some dialogue

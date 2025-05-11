@@ -4,6 +4,8 @@ extends Sprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
 
+@export var sound: AudioStreamPlayer2D
+
 var stone_scene = preload("res://SCENES/objects/rocks/stone.tscn")
 
 
@@ -12,6 +14,7 @@ func  _ready() -> void:
 	damage_component.max_damage_reached.connect(on_max_damage_reached)
 	
 func on_hurt(hit_damage: int) -> void:
+	sound.play()
 	damage_component.apply_damage(hit_damage)
 	material.set_shader_parameter("shake_intensity", 0.3)
 	await get_tree().create_timer(0.5).timeout

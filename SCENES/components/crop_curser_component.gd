@@ -2,6 +2,7 @@ class_name CropsCursorComponet
 extends Node
 
 @export var tilled_soil_tilemap_layer: TileMapLayer
+@export var sound: AudioStreamPlayer2D
 
 @onready var player: Player
 
@@ -36,7 +37,8 @@ func get_cell_under_mouse() -> void:
 	distance = player.global_position.distance_to(local_cell_position)
 
 func add_crop() -> void:
-	if distance < 20.0: 
+	if distance < 30.0: 
+		sound.play()
 		if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
 			var corn_instance = corn_plant_scene.instantiate() as Node2D
 			corn_instance.global_position = local_cell_position
