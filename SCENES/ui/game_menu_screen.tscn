@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgvor6f8r3flp"]
+[gd_scene load_steps=5 format=3 uid="uid://bgvor6f8r3flp"]
 
 [ext_resource type="Theme" uid="uid://k5ymdi3alhj7" path="res://SCENES/ui/game_ui_theme.tres" id="1_6dlka"]
 [ext_resource type="PackedScene" uid="uid://p2144skkfk4n" path="res://SCENES/ui/game_menu_screen_background.tscn" id="1_nyeec"]
 [ext_resource type="Script" path="res://SCENES/ui/game_menu_screen.gd" id="1_olh24"]
+[ext_resource type="PackedScene" uid="uid://82pwdd7nmhti" path="res://SCENES/components/mouse_cursor_component.tscn" id="2_bupr6"]
 
 [node name="GameMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_olh24")
+
+[node name="MouseCursorComponent" parent="." instance=ExtResource("2_bupr6")]
 
 [node name="GameMenuScreenBackground" parent="." instance=ExtResource("1_nyeec")]
 
