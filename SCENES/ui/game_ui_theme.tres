@@ -252,6 +252,7 @@ DayAndNightLabel/base_type = &"Label"
 DayAndNightLabel/font_sizes/font_size = 32
 DayAndNightLabel/fonts/font = ExtResource("2_ncvvh")
 GameMenuButton/base_type = &"Button"
+GameMenuButton/colors/font_disabled_color = Color(0.129697, 0.0358351, 0.0278959, 1)
 GameMenuButton/font_sizes/font_size = 32
 GameMenuButton/fonts/font = ExtResource("2_ncvvh")
 GameMenuButton/styles/disabled = SubResource("StyleBoxTexture_ayhoq")

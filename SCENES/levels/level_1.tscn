@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://waprt13tre0h"]
+[gd_scene load_steps=19 format=4 uid="uid://waprt13tre0h"]
 
+[ext_resource type="PackedScene" uid="uid://cndvjxv6k221g" path="res://SCENES/components/save_level_data_component.tscn" id="1_13d8e"]
 [ext_resource type="TileSet" uid="uid://cedmps7knuuit" path="res://TILESETS/game_tile_set.tres" id="1_gggyt"]
 [ext_resource type="PackedScene" uid="uid://c6x2gnkhcbpcs" path="res://SCENES/houses/large_house.tscn" id="2_hrufy"]
+[ext_resource type="PackedScene" uid="uid://b5nprdgleat4o" path="res://SCENES/components/save_data_component.tscn" id="3_3io4n"]
 [ext_resource type="PackedScene" uid="uid://d1scwh08ckgen" path="res://SCENES/houses/small_house.tscn" id="3_r4nog"]
 [ext_resource type="PackedScene" uid="uid://c0ugbnhtbwjx0" path="res://SCENES/components/field_cursor_component.tscn" id="4_6ssi5"]
 [ext_resource type="PackedScene" uid="uid://bac673vy6p1n2" path="res://SCENES/characters/chicken/chicken.tscn" id="4_j456i"]
+[ext_resource type="Resource" uid="uid://dh1rajd1n4q5p" path="res://resources/tilemap_layer_data_resource.tres" id="4_po6fn"]
 [ext_resource type="Script" path="res://SCENES/components/field_cursor_component.gd" id="5_3x7qq"]
 [ext_resource type="PackedScene" uid="uid://bsgs21x35luhl" path="res://SCENES/characters/cow/cow.tscn" id="5_euidl"]
 [ext_resource type="PackedScene" uid="uid://dkp7v8pk2eapo" path="res://SCENES/components/crop_curser_component.tscn" id="6_76i3r"]
@@ -29,6 +32,8 @@ source_geometry_mode = 2
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("1_13d8e")]
+
 [node name="GameTileMap" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -42,6 +47,9 @@ tile_set = ExtResource("1_gggyt")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTileMap"]
 tile_set = ExtResource("1_gggyt")
+
+[node name="SaveDataComponent" parent="GameTileMap/TilledSoil" instance=ExtResource("3_3io4n")]
+save_data_resource = ExtResource("4_po6fn")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
