@@ -111,7 +111,7 @@ navigation_agent_2d = NodePath("../../NavigationAgent2D")
 
 [node name="CowMooSFX" parent="." instance=ExtResource("6_2mhtw")]
 stream = SubResource("AudioStreamRandomizer_f4g8r")
-volume_db = 0.0
+volume_db = -5.0
 max_distance = 500.0
 
 [node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("7_fcnam")]

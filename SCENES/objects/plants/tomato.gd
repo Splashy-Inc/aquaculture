@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 func on_hurt(hit_damage: int) -> void:
 	if !growth_cycle_component.is_watered:
+		sound.play()
 		watering_particles.emitting = true
 		await get_tree().create_timer(5.0).timeout
 		watering_particles.emitting = false
